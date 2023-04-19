@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11aba09b923b65d4da9f87ae3e496dfa, type: 3}
   m_Name: DarkColorScheme
   m_EditorClassIdentifier: 
-  Background: {r: 0.20784314, g: 0.20784314, b: 0.20784314, a: 1}
-  SudokuCell: {r: 0.12156863, g: 0.14117648, b: 0.17254902, a: 1}
-  SudokuBackground: {r: 0.7019608, g: 0.77254903, b: 0.8, a: 1}
+  Background: {r: 0.30588236, g: 0.3372549, b: 0.3882353, a: 1}
+  SudokuCell: {r: 0.19215687, g: 0.21568628, b: 0.25490198, a: 1}
+  SudokuBackground: {r: 0.81960785, g: 0.81960785, b: 0.81960785, a: 1}
   SudokuCellText: {r: 0.9150943, g: 0.9150943, b: 0.9150943, a: 1}
-  SelectedCell: {r: 0.23599738, g: 0.2794817, b: 0.3490566, a: 1}
+  SelectedCell: {r: 0.39215687, g: 0.4509804, b: 0.54901963, a: 1}
   SelectedNonMutableCell: {r: 0.14509805, g: 0.4392157, b: 0.5372549, a: 1}
-  RelevantCell: {r: 0.17461729, g: 0.20542488, b: 0.254717, a: 1}
+  RelevantCell: {r: 0.26666668, g: 0.3019608, b: 0.36862746, a: 1}
