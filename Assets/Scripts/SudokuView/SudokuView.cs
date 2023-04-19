@@ -23,6 +23,7 @@ namespace HoMa.Sudoku
         [SerializeField] private SudokuCell[] m_SudokuGridCells;
         [Space]
         [SerializeField] private Animator m_SudokuPanelAnimator;
+        [SerializeField] private AudioSource m_SudokuPanelAudioSource;
         [Space]
         [SerializeField] private Button m_BackToMenuButton;
         [SerializeField] private Button m_ColorSchemeButton;
@@ -254,6 +255,7 @@ namespace HoMa.Sudoku
         internal void CellsAnimation()
         {
             m_SudokuPanelAnimator.SetTrigger("CellWave");
+            m_SudokuPanelAudioSource.Play();
         }
     #endregion
     }

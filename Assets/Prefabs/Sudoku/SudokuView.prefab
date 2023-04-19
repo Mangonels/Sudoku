@@ -264,6 +264,7 @@ MonoBehaviour:
   - {fileID: 1469532576038626642}
   - {fileID: 6440898794094185604}
   m_SudokuPanelAnimator: {fileID: 7314136890357248521}
+  m_SudokuPanelAudioSource: {fileID: 9013231886832669188}
   m_BackToMenuButton: {fileID: 3179110213612608325}
   m_ColorSchemeButton: {fileID: 9200466413845213062}
   m_ClearCellButton: {fileID: 8704072489873863281}
@@ -3655,6 +3656,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4778780c0a0e0994e9b63993d728b652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &9013231886832669188 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7248842384271380486, guid: c37666e00c2f55f4cb3f609d959c5e8f, type: 3}
+  m_PrefabInstance: {fileID: 1840953118689853954}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &9089544670379001871 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7469481268750862861, guid: c37666e00c2f55f4cb3f609d959c5e8f, type: 3}
