@@ -1,5 +1,4 @@
 using HoMa.Sudoku.Framework;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 

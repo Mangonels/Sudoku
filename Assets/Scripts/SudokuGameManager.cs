@@ -14,11 +14,12 @@ namespace HoMa.Sudoku
         private int m_Level = 0;
         private int m_SelectedCell;
 
-        private bool m_MoveValueHolderToSelection = false;
+        private bool m_SudokuLocked = false;
 
         private const int CELEB_EFFECTS_AMOUNT = 3;
         private const float CELEB_EFFECTS_DELAYS_SECONDS = 0.75f;
         private const float CELEB_FINISH_DELAY_SECONDS = 2f;
+        private const float GAME_SET_UNLOCK_SUDOKU_SECONDS = 1f;
 
         private const float CELL_ANIM_WAIT_SECONDS = 2f;
 
@@ -38,10 +39,10 @@ namespace HoMa.Sudoku
         internal int Level { get { return m_Level; } }
         internal int SelectedCell { get { return m_SelectedCell; } }
 
-        internal bool MoveValueHolderToSelection
+        internal bool SudokuLocked
         {
-            get { return m_MoveValueHolderToSelection; }
-            set { m_MoveValueHolderToSelection = value; }
+            get { return m_SudokuLocked; }
+            set { m_SudokuLocked = value; }
         }
 
         private void Awake()
@@ -51,13 +52,15 @@ namespace HoMa.Sudoku
 
         private void Start()
         {
-            SetSelectedSudokuCell(0);
-
             m_SudokuViewRef.SetClues(m_Levels[m_Level]);
+
+            SetSelectedSudokuCell(0);
         }
 
         internal void SetSelectedSudokuCell(int index) 
         {
+            if (m_SudokuLocked) return;
+
             m_SelectedCell = index;
 
             m_SudokuViewRef.UpdateHighlights();
@@ -65,13 +68,17 @@ namespace HoMa.Sudoku
 
         internal void SetSelectedSudokuCellValue(int value) 
         {
+            if (m_SudokuLocked) return;
+
             m_SudokuViewRef.SetCellValue(m_SelectedCell, value);
 
-            if (true/*m_SudokuViewRef.AllCellValuesSet && ValidateCurrentSudokuSolution()*/) StartCoroutine(SudokuLevelFinishedTransition());
+            if (m_SudokuViewRef.AllCellValuesSet && ValidateCurrentSudokuSolution()) StartCoroutine(SudokuLevelFinishedTransition());
         }
 
         private IEnumerator SudokuLevelFinishedTransition() 
         {
+            m_SudokuLocked = true;
+
             yield return StartCoroutine(LevelFinishedCelebrationEffects());
 
             StartCoroutine(SetupNextLevelSudoku());
@@ -107,6 +114,12 @@ namespace HoMa.Sudoku
 
             m_SudokuViewRef.ResetAllCells();
             m_SudokuViewRef.SetClues(m_Levels[m_Level]);
+
+            yield return new WaitForSeconds(GAME_SET_UNLOCK_SUDOKU_SECONDS);
+
+            m_SudokuLocked = false;
+
+            SetSelectedSudokuCell(0);
         }
 
         private IEnumerator LevelFinishedCelebrationEffects()
