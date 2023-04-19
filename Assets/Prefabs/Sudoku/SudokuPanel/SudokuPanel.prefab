@@ -361,6 +361,7 @@ GameObject:
   - component: {fileID: 8646785308214393605}
   - component: {fileID: 421451732307542635}
   - component: {fileID: 9038504416770606626}
+  - component: {fileID: 8938916990575898635}
   m_Layer: 5
   m_Name: SudokuPanel
   m_TagString: Untagged
@@ -427,6 +428,26 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &8938916990575898635
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3792179936391254532}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a32d2724bd3fdc0468f6e3b0577f547c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5590129237830982715
 GameObject:
   m_ObjectHideFlags: 0
