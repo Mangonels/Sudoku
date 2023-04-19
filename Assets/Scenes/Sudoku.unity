@@ -123,63 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &278410288
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1901004619450345940, guid: 5864eee9dde72684db4358a9e2d55b70, type: 3}
-      propertyPath: m_Name
-      value: Confetti
-      objectReference: {fileID: 0}
-    - target: {fileID: 1901004619450345943, guid: 5864eee9dde72684db4358a9e2d55b70, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1901004619450345943, guid: 5864eee9dde72684db4358a9e2d55b70, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1901004619450345943, guid: 5864eee9dde72684db4358a9e2d55b70, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1901004619450345943, guid: 5864eee9dde72684db4358a9e2d55b70, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 88
-      objectReference: {fileID: 0}
-    - target: {fileID: 1901004619450345943, guid: 5864eee9dde72684db4358a9e2d55b70, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1901004619450345943, guid: 5864eee9dde72684db4358a9e2d55b70, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1901004619450345943, guid: 5864eee9dde72684db4358a9e2d55b70, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1901004619450345943, guid: 5864eee9dde72684db4358a9e2d55b70, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1901004619450345943, guid: 5864eee9dde72684db4358a9e2d55b70, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1901004619450345943, guid: 5864eee9dde72684db4358a9e2d55b70, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1901004619450345943, guid: 5864eee9dde72684db4358a9e2d55b70, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5864eee9dde72684db4358a9e2d55b70, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,7 +308,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &999557391 stripped
 MonoBehaviour:
@@ -438,7 +381,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1865633222
 GameObject:
@@ -514,7 +457,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1865633226
 MonoBehaviour:
@@ -567,7 +510,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8755799793776093412, guid: 659adddd5b3c42a4fa4eef8d802c0759, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8755799793776093412, guid: 659adddd5b3c42a4fa4eef8d802c0759, type: 3}
       propertyPath: m_LocalPosition.x
@@ -796,7 +739,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 418013889025853178, guid: 0a8e2fbb2ee9a1e48aae03542fcb01fc, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 418013889025853178, guid: 0a8e2fbb2ee9a1e48aae03542fcb01fc, type: 3}
       propertyPath: m_AnchorMax.x

@@ -48,3 +48,4 @@ MonoBehaviour:
   m_Levels:
   - {fileID: 11400000, guid: 03009f4e4567281438d8dd5d5ea641d8, type: 2}
   - {fileID: 11400000, guid: be5a74287b43b704ea89c737dcc3345b, type: 2}
+  m_ConfettiEffect: {fileID: 1901004619450345940, guid: 5864eee9dde72684db4358a9e2d55b70, type: 3}

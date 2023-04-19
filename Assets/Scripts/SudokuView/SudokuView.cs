@@ -1,4 +1,5 @@
 using HoMa.Sudoku.Framework;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,6 +21,9 @@ namespace HoMa.Sudoku
 
         [Header("References")]
         [SerializeField] private SudokuCell[] m_SudokuGridCells;
+        [Space]
+        [SerializeField] private Animator m_SudokuPanelAnimator;
+        [Space]
         [SerializeField] private Button m_BackToMenuButton;
         [SerializeField] private Button m_ColorSchemeButton;
         [SerializeField] private Button m_ClearCellButton;
@@ -234,6 +238,16 @@ namespace HoMa.Sudoku
             {
                 m_SudokuGridCells[i].SetColor(bgColor, textColor, selectedColor, selectedNonMutableCellColor, relevantColor);
             }
+        }
+        #endregion
+
+    #region Animations
+        /// <summary>
+        /// Plays cell wave animation.
+        /// </summary>
+        internal void CellsAnimation()
+        {
+            m_SudokuPanelAnimator.SetTrigger("CellWave");
         }
     #endregion
     }
