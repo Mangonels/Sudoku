@@ -1,4 +1,5 @@
 using HoMa.Sudoku.Framework;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -31,6 +32,7 @@ namespace HoMa.Sudoku
         [Space]
         [SerializeField] private Image m_Background;
         [SerializeField] private Image m_SudokuBackground;
+        [SerializeField] private TMP_Text m_SudokuLevelDisplay;
 
         public int[] SudokuArrayCellValues { get { return m_SudokuGridCellValues; } }
 
@@ -129,6 +131,11 @@ namespace HoMa.Sudoku
                 SetCellValue(clueIndex, clueValue);
                 m_SudokuGridCells[clueIndex].MutableValue = false;
             }
+        }
+
+        internal void UpdateLevel(int level) 
+        {
+            m_SudokuLevelDisplay.text = level.ToString();
         }
     #endregion
 

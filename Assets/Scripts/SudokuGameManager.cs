@@ -36,7 +36,6 @@ namespace HoMa.Sudoku
         [Header("Prefab references")]
         [SerializeField] private GameObject m_ConfettiEffect;
 
-        internal int Level { get { return m_Level; } }
         internal int SelectedCell { get { return m_SelectedCell; } }
 
         internal bool SudokuLocked
@@ -66,7 +65,7 @@ namespace HoMa.Sudoku
             m_SudokuViewRef.UpdateHighlights();
         }
 
-        internal void SetSelectedSudokuCellValue(int value) 
+        internal void SetSelectedSudokuCellValue(int value)
         {
             if (m_SudokuLocked) return;
 
@@ -111,6 +110,8 @@ namespace HoMa.Sudoku
             yield return new WaitForSeconds(CELL_ANIM_WAIT_SECONDS);
 
             m_Level = (m_Level + 1) % m_Levels.Count; //Loop levels
+
+            m_SudokuViewRef.UpdateLevel(m_Level + 1);
 
             m_SudokuViewRef.ResetAllCells();
             m_SudokuViewRef.SetClues(m_Levels[m_Level]);
