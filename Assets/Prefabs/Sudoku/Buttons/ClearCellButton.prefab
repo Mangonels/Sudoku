@@ -247,6 +247,7 @@ MonoBehaviour:
       m_Calls: []
   TargetGraphic: {fileID: 4629601338171287041}
   m_SinkAmount: -10
+  m_SinkTime: 0.1
 --- !u!1 &2879742379200373649
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,8 +323,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4282335039
-  m_fontColor: {r: 0.24705882, g: 0.24705882, b: 0.24705882, a: 1}
+    rgba: 4280887593
+  m_fontColor: {r: 0.16037738, g: 0.16037738, b: 0.16037738, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
