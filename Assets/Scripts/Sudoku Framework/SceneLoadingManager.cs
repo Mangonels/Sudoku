@@ -11,6 +11,8 @@ namespace HoMa.Sudoku.Framework
     /// </summary>
     public class SceneLoadingManager : Singleton<SceneLoadingManager>
     {
+        internal bool IsTransitioning { get; set; }
+
         private void Awake()
         {
             base.Awake(true);
@@ -18,7 +20,16 @@ namespace HoMa.Sudoku.Framework
 
         internal void LoadScene(int index, float delay = 0.0f) 
         {
-            if (delay == 0.0f) SceneManager.LoadScene(index);
+            if (IsTransitioning) return;
+
+            IsTransitioning = true;
+
+            if (delay == 0.0f)
+            {
+                SceneManager.LoadScene(index);
+
+                IsTransitioning = false;
+            }
             else StartCoroutine(LoadSceneDelayed(index, delay));
         }
 
@@ -27,6 +38,8 @@ namespace HoMa.Sudoku.Framework
             yield return new WaitForSeconds(delay);
 
             SceneManager.LoadScene(index);
+
+            IsTransitioning = false;
         }
     }
 }

@@ -56,9 +56,9 @@ namespace HoMa.Sudoku
             SetSelectedSudokuCell(0);
         }
 
-        internal void SetSelectedSudokuCell(int index) 
+        internal void SetSelectedSudokuCell(int index, bool force = false) 
         {
-            if (m_SudokuLocked) return;
+            if (!force && m_SudokuLocked) return;
 
             m_SelectedCell = index;
 
@@ -105,6 +105,8 @@ namespace HoMa.Sudoku
         
         private IEnumerator SetupNextLevelSudoku()
         {
+            SetSelectedSudokuCell(0, true);
+
             m_SudokuViewRef.CellsAnimation(); //Play "reset cells" animation
 
             yield return new WaitForSeconds(CELL_ANIM_WAIT_SECONDS);
@@ -119,18 +121,18 @@ namespace HoMa.Sudoku
             yield return new WaitForSeconds(GAME_SET_UNLOCK_SUDOKU_SECONDS);
 
             m_SudokuLocked = false;
-
-            SetSelectedSudokuCell(0);
         }
 
         private IEnumerator LevelFinishedCelebrationEffects()
         {
-            for(int i = 0; i < CELEB_EFFECTS_AMOUNT; i++)
+            m_SudokuViewRef.LevelCompleteAnimation();
+
+            for (int i = 0; i < CELEB_EFFECTS_AMOUNT; i++)
             {
                 yield return new WaitForSeconds(CELEB_EFFECTS_DELAYS_SECONDS);
 
                 Vector3 spawnPosition = new Vector3(Random.Range(CELEB_EFFECTS_MIN_X, CELEB_EFFECTS_MAX_X), Random.Range(CELEB_EFFECTS_MIN_Y, CELEB_EFFECTS_MAX_Y), CELEB_EFFECTS_Z);
-                GameObject.Instantiate(m_ConfettiEffect, spawnPosition, Quaternion.identity);
+                Instantiate(m_ConfettiEffect, spawnPosition, Quaternion.identity);
             }
 
             yield return new WaitForSeconds(CELEB_FINISH_DELAY_SECONDS);

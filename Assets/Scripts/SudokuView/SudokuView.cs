@@ -15,6 +15,9 @@ namespace HoMa.Sudoku
 
         private int[] m_SudokuGridCellValues; //Current values for each cell as integers
 
+        private readonly string LV_COMPLETE_TRIGGER = "LevelComplete";
+        private readonly string CELL_WAVE_ANIM_TRIGGER = "CellWave";
+
         [Header("ColorSchemes")]
         [SerializeField] private ColorSchemeSO m_Light_ColorScheme;
         [SerializeField] private ColorSchemeSO m_Dark_ColorScheme;
@@ -23,6 +26,7 @@ namespace HoMa.Sudoku
         [SerializeField] private SudokuCell[] m_SudokuGridCells;
         [Space]
         [SerializeField] private Animator m_SudokuPanelAnimator;
+        [SerializeField] private Animator m_LevelCompleteAnimator;
         [SerializeField] private AudioSource m_SudokuPanelAudioSource;
         [Space]
         [SerializeField] private Button m_BackToMenuButton;
@@ -64,13 +68,23 @@ namespace HoMa.Sudoku
             m_ExtraHighlightToggleButton.onClick.AddListener(ToggleHighlights);
         }
 
+        private void Update()
+        {
+            if (Input.GetKey(KeyCode.Escape))
+            {
+                SceneLoadingManager.Instance.LoadScene(0, 0.15f);
+
+                return;
+            }
+        }
+
     #region Sudoku visual controls
-        /// <summary>
-        /// Sets the internal and visual value for a specific Mutable Sudoku cell.
-        /// </summary>
-        /// <param name="cellIndex">The index for the cell who's value will be set, starts at 0 for the first cell, top left of the Sudoku grid.</param>
-        /// <param name="value">The new value for the cell.</param>
-        internal void SetCellValue(int cellIndex, int value)
+            /// <summary>
+            /// Sets the internal and visual value for a specific Mutable Sudoku cell.
+            /// </summary>
+            /// <param name="cellIndex">The index for the cell who's value will be set, starts at 0 for the first cell, top left of the Sudoku grid.</param>
+            /// <param name="value">The new value for the cell.</param>
+            internal void SetCellValue(int cellIndex, int value)
         {
             if (m_SudokuGridCells[cellIndex].MutableValue)
             {
@@ -254,9 +268,14 @@ namespace HoMa.Sudoku
         /// </summary>
         internal void CellsAnimation()
         {
-            m_SudokuPanelAnimator.SetTrigger("CellWave");
+            m_SudokuPanelAnimator.SetTrigger(CELL_WAVE_ANIM_TRIGGER);
             m_SudokuPanelAudioSource.Play();
         }
-    #endregion
+
+        internal void LevelCompleteAnimation() 
+        {
+            m_LevelCompleteAnimator.SetTrigger(LV_COMPLETE_TRIGGER);
+        }
+        #endregion
     }
 }

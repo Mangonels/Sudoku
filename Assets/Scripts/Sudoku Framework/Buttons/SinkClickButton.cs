@@ -11,6 +11,7 @@ namespace HoMa.Sudoku.Framework
     {
         public Image TargetGraphic;
         [SerializeField] private float m_SinkAmount = -20f;
+        [SerializeField] private float m_SinkTime = 0.1f;
 
         protected override void Awake()
         {
@@ -21,8 +22,8 @@ namespace HoMa.Sudoku.Framework
 
         internal virtual void DoSink() 
         {
-            TargetGraphic.rectTransform.DOLocalMoveY(m_SinkAmount, 0.05f).OnComplete(
-                ()=> { TargetGraphic.rectTransform.DOLocalMoveY(0, 0.05f); }
+            TargetGraphic.rectTransform.DOLocalMoveY(m_SinkAmount, m_SinkTime).OnComplete(
+                ()=> { TargetGraphic.rectTransform.DOLocalMoveY(0, m_SinkTime); }
             );
         }
     }

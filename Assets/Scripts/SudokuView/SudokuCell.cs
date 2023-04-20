@@ -95,8 +95,6 @@ namespace HoMa.Sudoku
 #else
         public void OnPointerDown(PointerEventData eventData)
         {
-            Debug.Log("Pointer down cell");
-
             SudokuGameManager.Instance.SetSelectedSudokuCell(m_CellIndex);
         }
 #endif
