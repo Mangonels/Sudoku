@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace HoMa.Sudoku
@@ -8,6 +9,11 @@ namespace HoMa.Sudoku
     /// Sudoku cell which manages stuff such as it's displayed value and highlighting.
     /// </summary>
     public class SudokuCell : MonoBehaviour
+#if UNITY_ANDROID && !UNITY_EDITOR
+        , IPointerEnterHandler
+#else
+        , IPointerDownHandler
+#endif
     {
         private bool m_Mutable = true;
         private Color m_BackgroundColor;
@@ -24,7 +30,6 @@ namespace HoMa.Sudoku
         [SerializeField] private int m_Group;
 
         [Header("References")]
-        [SerializeField] private Button m_ButtonComponent;
         [SerializeField] private Image m_ImageComponent;
         [SerializeField] private TMP_Text m_ValueDisplay;
 
@@ -45,8 +50,6 @@ namespace HoMa.Sudoku
         private void Awake()
         {
             m_BackgroundColor = m_ImageComponent.color;
-
-            m_ButtonComponent.onClick.AddListener(NotifySudokuCellClick);
         }
 
         internal void SetValue(int value) 
@@ -84,9 +87,19 @@ namespace HoMa.Sudoku
             m_ImageComponent.color = m_BackgroundColor;
         }
 
-        private void NotifySudokuCellClick() 
+#if UNITY_ANDROID && !UNITY_EDITOR
+        public void OnPointerEnter(PointerEventData eventData)
         {
             SudokuGameManager.Instance.SetSelectedSudokuCell(m_CellIndex);
         }
+#else
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            Debug.Log("Pointer down cell");
+
+            SudokuGameManager.Instance.SetSelectedSudokuCell(m_CellIndex);
+        }
+#endif
+
     }
 }
